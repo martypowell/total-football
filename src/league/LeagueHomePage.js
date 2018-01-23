@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Standings from '../shared/standings/Standings';
 import './league.css';
 
 class LeagueHomePage extends Component {
@@ -7,6 +8,7 @@ class LeagueHomePage extends Component {
     return (
       <div className="page page--league">
         <h1>{name}</h1>
+        <Standings leagueId="1" />
       </div>
     );
   }
