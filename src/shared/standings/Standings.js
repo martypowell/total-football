@@ -78,7 +78,6 @@ class Standings extends Component {
       return newWords.join('');
     }
 
-    //TODO: Goal Differential doesn't work because of property name, need to ajdust this
     const sortedStandings = this.state.standings.sort((a, b) => {
       const formattedProperty = getPropertyNameFromColumnText(property);
       if (direction === 'asc') {
