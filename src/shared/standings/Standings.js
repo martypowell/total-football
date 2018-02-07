@@ -55,8 +55,6 @@ class Standings extends Component {
   }
 
   sortStandings(property, direction) {
-    console.log(property, direction);
-
     if (!direction) {
       const originalStandings = Object.assign({}, this.state.standings);
       this.setState({
@@ -64,9 +62,25 @@ class Standings extends Component {
       });
     }
 
+    const capitalizeFirstLetter = (string) => {
+      return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+    };
+
+    const getPropertyNameFromColumnText = (columnText) => {
+      if (!columnText) return console.error('you did not pass in a column name');
+      const words = columnText.split(" ");
+
+      const newWords = words.map((word, index) => {
+        if (index === 0) return word.toLowerCase();
+        return capitalizeFirstLetter(word.trim());
+      });
+
+      return newWords.join('');
+    }
+
     //TODO: Goal Differential doesn't work because of property name, need to ajdust this
     const sortedStandings = this.state.standings.sort((a, b) => {
-      const formattedProperty = property.toLowerCase().trim();
+      const formattedProperty = getPropertyNameFromColumnText(property);
       if (direction === 'asc') {
         return a[formattedProperty] > b[formattedProperty];  
       }
