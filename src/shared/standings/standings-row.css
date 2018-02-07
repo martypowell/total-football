@@ -3,7 +3,17 @@
     align-items: center;
     justify-content: space-between;
 }
+
 .standings-row * {
     display: inline-block;
-    width: 15%;
+    width: 10%;
+}
+
+.standings-row .team {
+    text-align: left;
+    width: 20%;
+}
+
+.standings-row:nth-child(odd) {
+    background: #ebebeb;
 }
